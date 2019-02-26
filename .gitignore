@@ -1,0 +1,11 @@
+# Mac OS
+.DS_Store
+
+# Composer
+composer.phar
+vendor
+
+# Node
+node_modules
+**/node_modules
+npm-debug.log
