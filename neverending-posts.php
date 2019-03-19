@@ -4,7 +4,7 @@
  Plugin Name: Neverending Posts
  Plugin URI: http://github.com/benignware/wp-neverending-posts
  Description: Ajaxify next posts link
- Version: 0.0.1
+ Version: 0.0.2
  Author: Rafael Nowrotek, Benignware
  Author URI: http://benignware.com
  License: MIT
@@ -18,12 +18,15 @@ add_action('wp_enqueue_scripts', function() {
 
 // Next posts link class
 add_filter('next_posts_link_attributes', function($attrs = '') {
-  $update_mode = 'append';
+  $options = apply_filters('neverending_posts_options', array(
+    'updateMode' => 'append'
+  ));
+  $options_serialized = urlencode(json_encode($options));
 
-  if (strpos($attrs, "data-remote=") !== FALSE) {
-    $attrs = preg_replace('~data-remote=["\']([^"\']*)["\']~', '$1 ' . $update_mode);
+  if (strpos($attrs, "data-neverending-posts=") !== FALSE) {
+    $attrs = preg_replace('~data-neverending-posts=["\']([^"\']*)["\']~', '$1 ' . $options_serialized);
   } else {
-    $attrs.= ' data-remote="' . $update_mode . '"';
+    $attrs.= ' data-neverending-posts="' . $options_serialized . '"';
   }
 
   return trim($attrs);
@@ -40,4 +43,10 @@ add_filter('previous_posts_link_attributes', function($attrs = array()) {
   }
 
   return trim($attrs);
+});
+
+add_filter('neverending_posts_options', function($options) {
+  return array_merge($options, array(
+    'containerSelector' => '*[role=\'main\']'
+  ));
 });

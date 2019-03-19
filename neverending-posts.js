@@ -1,9 +1,9 @@
-import remoteclick from 'remoteclick';
+import remoteclick from 'remoteclick/src/remoteclick';
 
-window.remoteclick(`*[data-remote='append']`, {
-  mode: 'append'
-});
-
-window.remoteclick(`*[data-remote='prepend']`, {
-  mode: 'prepend'
-});
+window.remoteclick(`*[data-neverending-posts]`, (element) => ({
+  ...JSON.parse(
+    decodeURIComponent(
+      element.getAttribute('data-neverending-posts')
+    )
+  )
+}));
