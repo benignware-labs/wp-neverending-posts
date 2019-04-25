@@ -4,7 +4,7 @@
  Plugin Name: Neverending Posts
  Plugin URI: http://github.com/benignware/wp-neverending-posts
  Description: Ajaxify next posts link
- Version: 0.0.2
+ Version: 0.0.3
  Author: Rafael Nowrotek, Benignware
  Author URI: http://benignware.com
  License: MIT
@@ -31,6 +31,7 @@ add_filter('next_posts_link_attributes', function($attrs = '') {
 
   return trim($attrs);
 });
+
 
 // Previous posts link class
 add_filter('previous_posts_link_attributes', function($attrs = array()) {
