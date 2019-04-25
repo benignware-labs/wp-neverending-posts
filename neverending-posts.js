@@ -1,5 +1,6 @@
-import 'element-closest';
-import 'classlist-polyfill';
+import 'core-js/features/url';
+import 'mdn-polyfills/Element.prototype.closest';
+import 'mdn-polyfills/Element.prototype.classList';
 
 import remoteclick from 'remoteclick/src/remoteclick';
 

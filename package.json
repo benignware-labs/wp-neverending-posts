@@ -1,6 +1,6 @@
 {
   "name": "wp-neverending-posts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Ajaxify next posts link",
   "main": "dist/neverending-posts.js",
   "scripts": {
@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "classlist-polyfill": "^1.2.0",
-    "element-closest": "^3.0.1",
+    "core-js": "^3.0.1",
+    "mdn-polyfills": "^5.16.0",
     "remoteclick": "git+https://github.com/benignware-labs/remoteclick.git#v0.1.0-alpha.5"
   },
   "devDependencies": {
