@@ -16,17 +16,14 @@ module.exports = [{
   module: {
     rules: [{
       test: /\.js$/,
-      // exclude: /(node_modules|bower_components)\/jquery/,
+      exclude: /node_modules\/(?!(remoteclick|unique-selector)\/).*/,
       use: {
         loader: 'babel-loader',
         options: {
-          presets: [
-            [
-              '@babel/preset-env', {}
-            ]
-          ],
+          presets: [ '@babel/preset-env' ],
           plugins: [
-            "@babel/plugin-transform-spread"
+            '@babel/transform-runtime',
+            '@babel/plugin-transform-spread'
           ]
         }
       }

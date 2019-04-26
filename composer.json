@@ -1,6 +1,6 @@
 {
   "name": "benignware/wp-neverending-posts",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "wordpress-plugin",
   "license": "MIT",
   "description": "Ajaxify next posts link",
@@ -35,6 +35,18 @@
         "reference": "master"
       }
     }
+  }, {
+    "type": "package",
+    "package": {
+      "name": "benignware/siteurl",
+      "version": "v0.0.2",
+      "type": "wordpress-plugin",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/benignware-labs/wp-siteurl.git",
+        "reference": "v0.0.2"
+      }
+    }
   }],
   "require": {
     "php": ">=5.3.0",
@@ -43,6 +55,7 @@
   "require-dev": {
     "wpackagist-theme/twentythirteen": ">=2.8",
     "wpackagist-plugin/wordpress-importer": ">=0.6.4",
+    "benignware/siteurl": ">=0.0.2",
     "wptrt/theme-unit-test": "dev-master"
   },
   "extra": {
