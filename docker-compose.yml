@@ -10,7 +10,7 @@ services:
       MYSQL_DATABASE: wordpress
     image: mysql:5.7
     volumes:
-    - db_data:/var/lib/mysql
+      - db_data:/var/lib/mysql
     restart: always
   wordpress:
     environment:
@@ -18,14 +18,18 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
     depends_on:
-    - db
+      - db
     image: wordpress
     ports:
-    - 8030:80
+      - 8030:80
     restart: always
     volumes:
-    - wordpress:/var/www/html
-    - .:/var/www/html/wp-content/plugins/neverending-posts
+      - wordpress:/var/www/html
+      - .:/var/www/html/wp-content/plugins/neverending-posts
+      - ./test/fixtures/themes/neverending-posts:/var/www/html/wp-content/themes/neverending-posts
+      - .uploads:/var/www/html/wp-content/uploads
+      - .plugins:/var/www/html/wp-content/plugins
+      - .mu-plugins:/var/www/html/wp-content/mu-plugins
     working_dir: /var/www/html
   wp:
     image: wordpress:cli
@@ -36,6 +40,10 @@ services:
       - wordpress:/var/www/html
       - .:/var/www/html/wp-content/plugins/neverending-posts
       - ./bin/install-wp.sh:/usr/local/bin/install-wp
+      - ./test/fixtures/themes/neverending-posts:/var/www/html/wp-content/themes/neverending-posts
+      - .uploads:/var/www/html/wp-content/uploads
+      - .plugins:/var/www/html/wp-content/plugins
+      - .mu-plugins:/var/www/html/wp-content/mu-plugins
     links:
       - db
     command: "--info"
@@ -58,6 +66,10 @@ services:
       - ./composer.json:/var/www/html/composer.json
       - ./composer.lock:/var/www/html/composer.lock
       - wordpress:/var/www/html
+      - ./test/fixtures/themes/neverending-posts:/var/www/html/wp-content/themes/neverending-posts
+      - .uploads:/var/www/html/wp-content/uploads
+      - .plugins:/var/www/html/wp-content/plugins
+      - .mu-plugins:/var/www/html/wp-content/mu-plugins
     links:
       - wordpress:wordpress
 volumes:

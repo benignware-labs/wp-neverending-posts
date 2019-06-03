@@ -1,0 +1,13 @@
+/*
+Theme Name: Neverending Posts Demo Theme
+Author: Rafael Nowrotek
+Author URI: http://benignware.com
+Description: Demo theme for the Neverending Posts plugin
+Template: twentyseventeen
+Text Domain: search-demo
+Version: 0.0.1
+*/
+
+.screen-reader-text {
+  display: none;
+}

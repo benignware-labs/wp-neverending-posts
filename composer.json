@@ -1,6 +1,6 @@
 {
   "name": "benignware/wp-neverending-posts",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "wordpress-plugin",
   "license": "MIT",
   "description": "Ajaxify next posts link",

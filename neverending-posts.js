@@ -6,10 +6,15 @@ import 'isomorphic-fetch';
 
 import remoteclick from 'remoteclick';
 
-window.remoteclick(`*[data-neverending-posts]`, (element) => ({
-  ...JSON.parse(
+window.remoteclick(`*[data-neverending-posts]`, (element) => {
+
+  const options = JSON.parse(
     decodeURIComponent(
       element.getAttribute('data-neverending-posts')
     )
-  )
-}));
+  );
+
+  return ({
+    ...options
+  });
+});

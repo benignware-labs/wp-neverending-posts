@@ -1,11 +1,27 @@
 # Mac OS
 .DS_Store
 
-# Composer
-composer.phar
-vendor
-
 # Node
 node_modules
 **/node_modules
 npm-debug.log
+
+# PHP
+vendor
+composer.phar
+
+# Temp Dir
+tmp
+temp
+
+# Env Files
+.env-*
+.env
+!.env-sample
+
+# Wordpress
+wp-config-*
+wp-config
+.plugins
+.mu-plugins
+.uploads
